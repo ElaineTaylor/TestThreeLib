@@ -8,6 +8,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestThreeLib">
         <activity
+            android:name=".animationpackage.AnimationActivity"
+            android:exported="false" />
+        <activity
             android:name=".basequickadapterPackage.BaseQuickAdapterActivity"
             android:exported="false" />
         <activity

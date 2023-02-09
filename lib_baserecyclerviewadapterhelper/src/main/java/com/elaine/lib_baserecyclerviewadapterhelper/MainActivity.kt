@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.elaine.lib_baserecyclerviewadapterhelper.animationpackage.AnimationActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.basequickadapterPackage.BaseQuickAdapterActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.databinding.ActivityMainBinding
 
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         //基础使用---BaseQuickAdapter
         mBinding.btnBaseQuickAdapter.setOnClickListener {
             startActivity(Intent(this, BaseQuickAdapterActivity::class.java))
+        }
+        //动画效果
+        mBinding.btnAnimation.setOnClickListener {
+            startActivity(Intent(this, AnimationActivity::class.java))
         }
     }
 }
