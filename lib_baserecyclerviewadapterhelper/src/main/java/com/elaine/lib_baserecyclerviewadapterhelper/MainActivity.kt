@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.elaine.lib_baserecyclerviewadapterhelper.animationpackage.AnimationActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.basequickadapterPackage.BaseQuickAdapterActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.databinding.ActivityMainBinding
+import com.elaine.lib_baserecyclerviewadapterhelper.itemlistenerpackage.ItemListenerActivity
 
 /**
  * APP主入口
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         //动画效果
         mBinding.btnAnimation.setOnClickListener {
             startActivity(Intent(this, AnimationActivity::class.java))
+        }
+        //Item监听事件
+        mBinding.btnItemListener.setOnClickListener {
+            startActivity(Intent(this, ItemListenerActivity::class.java))
         }
     }
 }
