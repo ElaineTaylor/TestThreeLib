@@ -8,6 +8,7 @@ import com.elaine.lib_baserecyclerviewadapterhelper.animationpackage.AnimationAc
 import com.elaine.lib_baserecyclerviewadapterhelper.basequickadapterPackage.BaseQuickAdapterActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.databinding.ActivityMainBinding
 import com.elaine.lib_baserecyclerviewadapterhelper.itemlistenerpackage.ItemListenerActivity
+import com.elaine.lib_baserecyclerviewadapterhelper.morelistenerpackage.MoreListenerActivity
 
 /**
  * APP主入口
@@ -38,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         //Item监听事件
         mBinding.btnItemListener.setOnClickListener {
             startActivity(Intent(this, ItemListenerActivity::class.java))
+        }
+        //下拉和上拉加载事件
+        mBinding.btnMoreListener.setOnClickListener {
+            startActivity(Intent(this, MoreListenerActivity::class.java))
         }
     }
 }
