@@ -3,6 +3,7 @@ package com.elaine.lib_baserecyclerviewadapterhelper.itemlistenerpackage
 import android.view.View
 import android.widget.Toast
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.module.DraggableModule
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.elaine.lib_baserecyclerviewadapterhelper.R
 import com.elaine.lib_baserecyclerviewadapterhelper.bean.BaseBean
@@ -12,7 +13,8 @@ import com.elaine.lib_baserecyclerviewadapterhelper.databinding.ItemItemListener
  * Item监听事件--适配器
  */
 class ItemListenerAdapter :
-    BaseQuickAdapter<BaseBean?, BaseDataBindingHolder<ItemItemListenerBinding>>(R.layout.item_item_listener) {
+    BaseQuickAdapter<BaseBean?, BaseDataBindingHolder<ItemItemListenerBinding>>(R.layout.item_item_listener),
+    DraggableModule {
     override fun convert(
         holder: BaseDataBindingHolder<ItemItemListenerBinding>,
         item: BaseBean?

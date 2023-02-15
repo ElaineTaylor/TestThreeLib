@@ -1,15 +1,15 @@
 package com.elaine.lib_baserecyclerviewadapterhelper.itemlistenerpackage
 
+import android.graphics.Canvas
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.listener.OnItemChildClickListener
-import com.chad.library.adapter.base.listener.OnItemClickListener
-import com.chad.library.adapter.base.listener.OnItemLongClickListener
+import androidx.recyclerview.widget.RecyclerView
+import com.chad.library.adapter.base.listener.OnItemDragListener
+import com.chad.library.adapter.base.listener.OnItemSwipeListener
 import com.elaine.lib_baserecyclerviewadapterhelper.R
 import com.elaine.lib_baserecyclerviewadapterhelper.bean.BaseBean
 import com.elaine.lib_baserecyclerviewadapterhelper.databinding.ActivityItemListenerBinding
@@ -91,6 +91,81 @@ class ItemListenerActivity : AppCompatActivity() {
 //            ).show()
             true
         }
+
+        //是否可以拖拽 true--是，false--否
+        itemListenerAdapter.draggableModule.isDragEnabled = true
+        //长按拖拽的目标组件ID
+        itemListenerAdapter.draggableModule.toggleViewId = R.id.btn_inner
+        //判断是否有目标组件
+        val isHasToggleView = itemListenerAdapter.draggableModule.hasToggleView()
+        Log.e("是否有目标组件==", "$isHasToggleView")//true
+        //是否可以长按拖动 配合toggleViewId使用
+        itemListenerAdapter.draggableModule.isDragOnLongPressEnabled = true
+
+        //拖拽监听事件
+        itemListenerAdapter.draggableModule.setOnItemDragListener(object : OnItemDragListener {
+            //拖拽开始
+            override fun onItemDragStart(viewHolder: RecyclerView.ViewHolder?, pos: Int) {
+                Log.e("拖拽===", "onItemDragStart")
+            }
+
+            //拖拽中
+            override fun onItemDragMoving(
+                source: RecyclerView.ViewHolder?,
+                from: Int,
+                target: RecyclerView.ViewHolder?,
+                to: Int
+            ) {
+                Log.e("拖拽===", "onItemDragMoving")
+            }
+
+            //拖拽结束
+            override fun onItemDragEnd(viewHolder: RecyclerView.ViewHolder?, pos: Int) {
+                Log.e("拖拽===", "onItemDragEnd")
+            }
+        })
+
+
+        //是否可以滑动  true--是，false--否
+        itemListenerAdapter.draggableModule.isSwipeEnabled = true
+        //设置滑动运动方向
+        itemListenerAdapter.draggableModule.itemTouchHelperCallback.setSwipeMoveFlags(
+            //前滑或者后滑
+            ItemTouchHelper.START or ItemTouchHelper.END
+        )
+        //滑动监听事件
+        itemListenerAdapter.draggableModule.setOnItemSwipeListener(object : OnItemSwipeListener {
+            //滑动开始
+            override fun onItemSwipeStart(viewHolder: RecyclerView.ViewHolder?, pos: Int) {
+                Log.e("滑动===", "onItemSwipeStart")
+            }
+
+            //清除View
+            override fun clearView(viewHolder: RecyclerView.ViewHolder?, pos: Int) {
+                Log.e("滑动===", "clearView")
+            }
+
+            //滑动了
+            override fun onItemSwiped(viewHolder: RecyclerView.ViewHolder?, pos: Int) {
+                Log.e("滑动===", "onItemSwiped")
+            }
+
+            //滑动中
+            override fun onItemSwipeMoving(
+                canvas: Canvas?,
+                viewHolder: RecyclerView.ViewHolder?,
+                dX: Float,
+                dY: Float,
+                isCurrentlyActive: Boolean
+            ) {
+                Log.e("滑动===", "onItemSwipeMoving")
+            }
+        })
+
+//        itemListenerAdapter.draggableModule.attachToRecyclerView()
+//        itemListenerAdapter.draggableModule.itemTouchHelperCallback
+//        itemListenerAdapter.draggableModule.itemTouchHelper
+//        itemListenerAdapter.addDraggableModule()
     }
 
     /**
