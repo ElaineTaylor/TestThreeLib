@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.chad.library.adapter.base.listener.OnLoadMoreListener
 import com.elaine.lib_baserecyclerviewadapterhelper.R
 import com.elaine.lib_baserecyclerviewadapterhelper.bean.BaseBean
 import com.elaine.lib_baserecyclerviewadapterhelper.databinding.ActivityDownMoreListenerBinding
@@ -66,13 +65,14 @@ class DownMoreListenerActivity : AppCompatActivity() {
         //用来检查数据是否满一屏
         val isCheck = downMoreListenerAdapter.loadMoreModule.checkDisableLoadMoreIfNotFullPage()
         Log.e("用来检查数据是否满一屏===", "$isCheck")
-        //设置加载更多布局--自定义布局
-//        downMoreListenerAdapter.loadMoreModule.loadMoreView
+
 
 //        downMoreListenerAdapter.loadMoreModule.isLoadEndMoreGone
 //        downMoreListenerAdapter.loadMoreModule.loadMoreStatus
 //        downMoreListenerAdapter.addLoadMoreModule()
 
+        //设置加载更多布局--自定义布局  Adapter单独设置（优先于全局设置）
+        downMoreListenerAdapter.loadMoreModule.loadMoreView = CustomDownMoreView()
 
 
     }
@@ -88,15 +88,15 @@ class DownMoreListenerActivity : AppCompatActivity() {
         val data: MutableList<BaseBean> = ArrayList()
         for (i in 20..40) {
             val baseBean = BaseBean()
-            baseBean.content = "下拉加载更多(DownMore)---数据$i"
+            baseBean.content = "底部-新-加载更多(DownMore)---数据$i"
             data.add(baseBean)
         }
         //适配器添加数据
         downMoreListenerAdapter.addData(data)
         //本次数据加载完毕
-        downMoreListenerAdapter.loadMoreModule.loadMoreComplete()
+//        downMoreListenerAdapter.loadMoreModule.loadMoreComplete()
         //本次数据加载错误
-//        downMoreListenerAdapter.loadMoreModule.loadMoreFail()
+        downMoreListenerAdapter.loadMoreModule.loadMoreFail()
         //所有数据加载完成
 //        downMoreListenerAdapter.loadMoreModule.loadMoreEnd(true)
     }
@@ -109,7 +109,7 @@ class DownMoreListenerActivity : AppCompatActivity() {
         val data: MutableList<BaseBean> = ArrayList()
         for (i in 0..20) {
             val baseBean = BaseBean()
-            baseBean.content = "下拉加载更多(DownMore)---数据$i"
+            baseBean.content = "底部--加载更多(DownMore)---数据$i"
             data.add(baseBean)
         }
         //适配器添加数据

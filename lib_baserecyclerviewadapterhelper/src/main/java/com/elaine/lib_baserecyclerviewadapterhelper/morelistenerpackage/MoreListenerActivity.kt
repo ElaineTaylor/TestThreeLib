@@ -76,7 +76,7 @@ class MoreListenerActivity : AppCompatActivity() {
         val data: MutableList<BaseBean> = ArrayList()
         for (i in 0..20) {
             val baseBean = BaseBean()
-            baseBean.content = "向上加载(MoreListenerActivity)---数据$i"
+            baseBean.content = "顶部--向上加载(MoreListener)---数据$i"
             data.add(baseBean)
         }
         return data
