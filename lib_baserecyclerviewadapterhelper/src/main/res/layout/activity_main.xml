@@ -42,7 +42,16 @@
             android:id="@+id/btn_more_listener"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="下拉和上拉加载事件"
+            android:text="上拉加载事件"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_down_more_listener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下拉加载事件"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

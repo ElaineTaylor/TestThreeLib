@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.elaine.lib_baserecyclerviewadapterhelper.animationpackage.AnimationActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.basequickadapterPackage.BaseQuickAdapterActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.databinding.ActivityMainBinding
+import com.elaine.lib_baserecyclerviewadapterhelper.downmorelistenerpackage.DownMoreListenerActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.itemlistenerpackage.ItemListenerActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.morelistenerpackage.MoreListenerActivity
 
@@ -40,9 +41,13 @@ class MainActivity : AppCompatActivity() {
         mBinding.btnItemListener.setOnClickListener {
             startActivity(Intent(this, ItemListenerActivity::class.java))
         }
-        //下拉和上拉加载事件
+        //上拉加载事件
         mBinding.btnMoreListener.setOnClickListener {
             startActivity(Intent(this, MoreListenerActivity::class.java))
+        }
+        //下拉加载事件
+        mBinding.btnDownMoreListener.setOnClickListener {
+            startActivity(Intent(this, DownMoreListenerActivity::class.java))
         }
     }
 }

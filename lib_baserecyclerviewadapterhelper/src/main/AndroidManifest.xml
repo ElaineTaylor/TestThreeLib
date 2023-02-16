@@ -8,6 +8,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestThreeLib">
         <activity
+            android:name=".downmorelistenerpackage.DownMoreListenerActivity"
+            android:exported="false" />
+        <activity
             android:name=".morelistenerpackage.MoreListenerActivity"
             android:exported="false" />
         <activity

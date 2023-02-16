@@ -10,7 +10,7 @@ import com.elaine.lib_baserecyclerviewadapterhelper.bean.BaseBean
 import com.elaine.lib_baserecyclerviewadapterhelper.databinding.ActivityMoreListenerBinding
 
 /**
- * 下拉和上拉加载
+ * 顶部--向上加载
  */
 class MoreListenerActivity : AppCompatActivity() {
     //布局
@@ -41,13 +41,13 @@ class MoreListenerActivity : AppCompatActivity() {
         //初始化数据
         moreListenerAdapter.setList(getData())
 
-        //是否可以上拉加载 true-是 false-否
+        //是否可以向上加载 true-是 false-否
         moreListenerAdapter.upFetchModule.isUpFetchEnable = true
-        //上拉加载监听 --增加数据
+        //向上加载监听 --增加数据
         moreListenerAdapter.upFetchModule.setOnUpFetchListener { addData() }
-        //是否在上拉中
+        //是否在向上加载中
         val isUpFetching = moreListenerAdapter.upFetchModule.isUpFetching
-        Log.e("是否在上拉中", "$isUpFetching")
+        Log.e("是否在向上加载中", "$isUpFetching")
         //启动位置,默认是1
         moreListenerAdapter.upFetchModule.startUpFetchPosition = 2
 
@@ -55,16 +55,16 @@ class MoreListenerActivity : AppCompatActivity() {
     }
 
     /**
-     * 上拉加载数据
+     * 向上加载数据
      */
     private fun addData() {
-        //是否在上拉中 true--是
+        //是否在向上加载中 true--是
         moreListenerAdapter.upFetchModule.isUpFetching = true
         //延迟300添加数据，这里避免出现IllegalStateException: Cannot call this method while RecyclerView is computing a layout or scrolling
         mBinding.rvData.postDelayed({
             moreListenerAdapter.addData(0, getData())
         }, 300)
-        //是否在上拉中 false--否
+        //是否在向上加载中 false--否
         moreListenerAdapter.upFetchModule.isUpFetching = false
     }
 
@@ -76,7 +76,7 @@ class MoreListenerActivity : AppCompatActivity() {
         val data: MutableList<BaseBean> = ArrayList()
         for (i in 0..20) {
             val baseBean = BaseBean()
-            baseBean.content = "下拉和上拉加载(MoreListenerActivity)---数据$i"
+            baseBean.content = "向上加载(MoreListenerActivity)---数据$i"
             data.add(baseBean)
         }
         return data
