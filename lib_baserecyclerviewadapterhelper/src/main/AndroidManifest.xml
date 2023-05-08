@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestThreeLib">
         <activity
+            android:name=".headfootemptypackage.HeadFootEmptyActivity"
+            android:exported="false" />
+        <activity
             android:name=".downmorelistenerpackage.DownMoreListenerActivity"
             android:exported="false" />
         <activity

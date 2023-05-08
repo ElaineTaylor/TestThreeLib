@@ -8,6 +8,7 @@ import com.elaine.lib_baserecyclerviewadapterhelper.animationpackage.AnimationAc
 import com.elaine.lib_baserecyclerviewadapterhelper.basequickadapterPackage.BaseQuickAdapterActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.databinding.ActivityMainBinding
 import com.elaine.lib_baserecyclerviewadapterhelper.downmorelistenerpackage.DownMoreListenerActivity
+import com.elaine.lib_baserecyclerviewadapterhelper.headfootemptypackage.HeadFootEmptyActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.itemlistenerpackage.ItemListenerActivity
 import com.elaine.lib_baserecyclerviewadapterhelper.morelistenerpackage.MoreListenerActivity
 
@@ -48,6 +49,10 @@ class MainActivity : AppCompatActivity() {
         //下拉加载事件
         mBinding.btnDownMoreListener.setOnClickListener {
             startActivity(Intent(this, DownMoreListenerActivity::class.java))
+        }
+        //头部，底部，空布局
+        mBinding.btnHeadFootEmpty.setOnClickListener {
+            startActivity(Intent(this, HeadFootEmptyActivity::class.java))
         }
     }
 }
